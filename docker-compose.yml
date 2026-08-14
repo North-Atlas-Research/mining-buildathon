@@ -1,0 +1,24 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspace/repo:cached
+
+      # Set PROJECT_DATA_HOST to the absolute path of ProjectSSD/Data on macOS.
+      # Raw is technically read-only.
+      - ${PROJECT_DATA_HOST}/Raw:/workspace/data/Raw:ro
+      - ${PROJECT_DATA_HOST}/Interim:/workspace/data/Interim
+      - ${PROJECT_DATA_HOST}/Processed:/workspace/data/Processed
+      - ${PROJECT_DATA_HOST}/Outputs:/workspace/data/Outputs
+      - ${PROJECT_DATA_HOST}/Scratch:/workspace/data/Scratch
+      - ${PROJECT_DATA_HOST}/Cache:/workspace/data/Cache
+
+    working_dir: /workspace/repo
+    command: sleep infinity
+
+    # Deliberately do not mount:
+    # - ~/.ssh
+    # - ~/.config/gh
+    # - /var/run/docker.sock

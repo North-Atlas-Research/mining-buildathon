@@ -1,0 +1,18 @@
+event_id: portmore_november_2020
+name: November 2-10 2020 rainfall event
+region_id: portmore_jamaica_2020
+
+start_utc: "2020-11-02T00:00:00Z"
+end_utc: "2020-11-11T00:00:00Z"
+
+role: held_out_evaluation
+outcome_evidence_policy: do_not_use_for_tuning_after_freeze
+
+rainfall:
+  primary_source: NASA_GPM_IMERG
+  native_interval: 30min
+  derived_accumulations:
+    - 1h
+    - 3h
+    - 6h
+    - 24h

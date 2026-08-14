@@ -1,0 +1,54 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Local data mounts / symlinks
+data/
+Data/
+Interim/
+Processed/
+Outputs/
+Scratch/
+Cache/
+
+# Geospatial / large artifacts
+*.tif
+*.tiff
+*.hdf
+*.h5
+*.hdf5
+*.nc
+*.grib
+*.grib2
+*.gpkg
+*.fgb
+*.parquet
+*.geojson
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.osm
+*.pbf
+*.zip
+
+# Logs
+*.log

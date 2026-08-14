@@ -1,0 +1,39 @@
+[project]
+name = "mining-sprint"
+version = "0.1.0"
+description = "Portmore 2020 data and historical replay pipeline"
+requires-python = ">=3.12"
+dependencies = [
+  "geopandas>=1.0,<2",
+  "pyogrio>=0.10,<1",
+  "shapely>=2.0,<3",
+  "pyproj>=3.7,<4",
+  "rasterio>=1.4,<2",
+  "rioxarray>=0.18,<1",
+  "xarray>=2025.1,<2027",
+  "pandas>=2.2,<3",
+  "pyarrow>=18,<24",
+  "numpy>=2.0,<3",
+  "networkx>=3.4,<4",
+  "osmnx>=2.0,<3",
+  "pyyaml>=6,<7",
+  "requests>=2.32,<3",
+  "click>=8.1,<9",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.9,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

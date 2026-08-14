@@ -1,0 +1,1 @@
+"""Mining Sprint package."""

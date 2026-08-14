@@ -1,0 +1,21 @@
+region_id: portmore_jamaica_2020
+name: Portmore
+country: Jamaica
+study_year: 2020
+
+boundary:
+  status: pending_source_selection
+  source: null
+
+crs:
+  source_crs: null
+  analysis_crs: null
+  decision_status: pending
+
+target_community_count:
+  min: 10
+  max: 20
+
+notes:
+  - Portmore is the MVP study area.
+  - Broader St. Catherine / lower Rio Cobre context may be used for narrative or contextual layers.
