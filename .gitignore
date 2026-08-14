@@ -52,3 +52,9 @@ Cache/
 
 # Logs
 *.log
+
+# macOS AppleDouble metadata
+._*
+
+# Generated raw-data inventory
+metadata/raw_manifest.csv
