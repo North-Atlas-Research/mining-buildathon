@@ -4,13 +4,43 @@ country: Jamaica
 study_year: 2020
 
 boundary:
-  status: pending_source_selection
-  source: null
+  status: accepted_operational_study_boundary
+  role: operational_study_boundary
+  canonical_path: Processed/region/portmore_boundary.gpkg
+  canonical_layer: portmore_jamaica_2020
+  canonical_format: GeoPackage
+  canonical_storage_crs: EPSG:3448
+  source_identifier: ArcGIS item 410bc3258e7046f6a944e070159f2d38 / Portmore - 02
+  source_provenance_reference: metadata/raw_manifest.csv#relative_path=410bc3258e7046f6a944e070159f2d38-data.json
+  legal_authority_flag: false
+  legal_boundary_caveat: >-
+    The operational study boundary is a practical digital representation for
+    the MVP and has not been demonstrated to reproduce the statutory Portmore
+    boundary exactly.
+  validation_source: Census / STATIN-derived JAM_GEO1_14_02
+  known_boundary_uncertainty: >-
+    Localized ArcGIS/Census differences exceed 100 m; WS25-002A found the
+    largest differences near Waterford and Edgewater, without a georeferenced
+    legal-map adjudication.
+  boundary_edge_review_distance_m: 750
+  acquisition_context_buffer_m: 2000
+  derived_geometries:
+    boundary_edge_review:
+      path: Interim/region/portmore_boundary_edge_review_750m.gpkg
+      definition: canonical_boundary.boundary.buffer(750)
+      geometry_semantics: two_sided_band_around_boundary_line
+      usage: boundary_edge_review_only
+      operational_inclusion_polygon: false
+    acquisition_context_buffer:
+      path: Interim/region/portmore_acquisition_context_buffer_2000m.gpkg
+      definition: canonical_boundary.buffer(2000)
 
 crs:
-  source_crs: null
-  analysis_crs: null
-  decision_status: pending
+  source_representation_crs: ArcGIS wkid 102100 / EPSG:3857
+  original_source_crs: unknown
+  analysis_crs: EPSG:3448
+  interchange_crs: EPSG:4326
+  decision_status: frozen
 
 target_community_count:
   min: 10
@@ -18,4 +48,7 @@ target_community_count:
 
 notes:
   - Portmore is the MVP study area.
+  - The accepted geometry is an operational study boundary, not a demonstrated statutory boundary reproduction.
+  - The canonical boundary, not the 750 m two-sided edge-review band, is the operational inclusion polygon.
+  - Production source selection is frozen and must not be reopened during normalization.
   - Broader St. Catherine / lower Rio Cobre context may be used for narrative or contextual layers.
