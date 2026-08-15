@@ -1,0 +1,15 @@
+field,required,description
+source_id,true,Identifier joining the record to the external-source manifest
+section,true,Printed document section containing the record
+source_page,true,Printed page number
+section_row_ordinal,true,One-based row order within the section
+document_row_ordinal,true,One-based row order across extracted sections
+parish_raw,true,Parish exactly as printed
+local_authority_raw,true,Local authority exactly as printed
+shelter_name_raw,true,Shelter name exactly as printed
+shelter_address_raw,true,Shelter address exactly as printed
+community_raw,true,Community exactly as printed
+priority_shelter_raw,false,Priority Shelter cell exactly as printed; blank is preserved
+capacity_raw,true,Capacity cell preserved as text including N/A
+zone_raw,true,Zone exactly as printed
+areas_served_raw,true,Areas Served exactly as printed
