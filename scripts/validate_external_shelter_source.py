@@ -1,4 +1,4 @@
-"""Validate WS25-004 external provenance and lossless shelter source records."""
+"""Validate WS25-004 provenance and field-preserving factual transcription."""
 
 from __future__ import annotations
 
@@ -12,6 +12,12 @@ from mining_sprint.external_sources import (
     validate_external_source,
     validate_source_records,
     verify_temporary_source,
+)
+from mining_sprint.shelter_resolution import (
+    load_resolution_inputs,
+    validate_identity_crosswalk,
+    validate_location_candidates,
+    validate_priority_review,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,6 +53,14 @@ def main() -> None:
     print(f"Pinned SHA-256: {provenance['sha256']}")
     for section, count in counts.items():
         print(f"{section}: {count} records")
+
+    resolution = load_resolution_inputs(ROOT)
+    validate_identity_crosswalk(resolution["source"], resolution["identity"])
+    location_counts = validate_location_candidates(resolution["identity"], resolution["location"])
+    priority_counts = validate_priority_review(resolution["source"], resolution["priority"])
+    print(f"Identity candidates: {len(resolution['identity'])}")
+    print(f"Location review: {dict(location_counts)}")
+    print(f"Priority review: {dict(priority_counts)}")
 
 
 if __name__ == "__main__":

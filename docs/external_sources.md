@@ -15,7 +15,7 @@ committed, published, bundled with deliverables, copied to shared Raw, or
 redistributed. A temporary download may be checked against the pinned byte size
 and SHA-256 and must remain outside the repository and shared data directories.
 
-Curated factual extraction tables may be stored beneath
+Field-preserving factual transcription tables may be stored beneath
 `metadata/external_sources/` when they preserve source values and carry stable
 page and row references. They must not contain source pages, screenshots, layout
 reproductions, embedded files, or extended verbatim passages.

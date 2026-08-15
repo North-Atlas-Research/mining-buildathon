@@ -67,7 +67,7 @@ def validate_external_source(record: dict[str, str]) -> None:
 
 
 def validate_source_records(records: list[dict[str, str]], *, source_id: str) -> Counter[str]:
-    """Validate lossless source rows without interpreting capacity or other raw values."""
+    """Validate field-preserving rows without interpreting capacity or other raw values."""
     if not records:
         raise ExternalSourceError("Source-record extraction is empty")
     identities: set[tuple[str, str]] = set()

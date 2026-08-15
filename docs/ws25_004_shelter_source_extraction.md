@@ -14,7 +14,8 @@ and pinned source checksum.
 
 ## Extraction method
 
-The source table was checked visually against printed pages 2, 3, and 4. Values
+The source table is a field-preserving factual transcription checked visually
+against printed pages 2, 3, and 4. It is not a byte- or layout-lossless copy. Values
 in `metadata/external_sources/odpem_portmore_shelters_2019.csv` preserve printed
 spelling, capitalization, punctuation, blanks, `N/A`, and row order. Visual line
 wrapping inside cells was collapsed to spaces; this does not join or split
@@ -31,8 +32,13 @@ The `PORTMORE CITY MUNICIPALITY` section contains 18 printed shelter rows:
 Nine Portmore shelter names carry a printed `(Priority)` marker. Nine Priority
 Shelter cells are populated, including the visually unusual placement of
 `Kensington` on the `Independence City Primary` row while the subsequent
-`Kensington (Priority)` row has a blank Priority Shelter cell. The extraction
+`Kensington (Priority)` row has a blank Priority Shelter cell. The transcription
 preserves that arrangement rather than correcting it.
+
+The populated Priority Shelter cell is not, by itself, sufficient evidence for
+a normalized priority status or row association. Priority interpretation remains
+unresolved wherever the printed name marker and column placement do not establish
+the same association.
 
 The source's printed total says `17` shelters and `9` priority shelters. The
 priority total agrees with the rows, but the shelter total does not. The

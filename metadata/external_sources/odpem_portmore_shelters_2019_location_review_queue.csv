@@ -1,0 +1,21 @@
+canonical_candidate_id,source_record_id,status,review_reason,recommended_action
+shelter_candidate_0001,odpem2019-pm-001,open,Supplementary OSM area centroid requires authoritative confirmation,Confirm mapped school grounds against official parcel or school record
+shelter_candidate_0002,odpem2019-pm-002,open,No defensible coordinate candidate,Obtain official facility or municipal location evidence
+shelter_candidate_0003,odpem2019-pm-003,open,Supplementary OSM area centroid requires authoritative confirmation,Confirm mapped school grounds against official parcel or school record
+shelter_candidate_0004,odpem2019-pm-004,open,No defensible coordinate candidate,Obtain official facility or municipal location evidence
+shelter_candidate_0005,odpem2019-pm-005,open,Supplementary OSM area centroid and source spelling difference require review,Confirm mapped school grounds and Braeton identity against official school record
+shelter_candidate_0006,odpem2019-pm-006,open,OSM area and address-point candidates differ by approximately 42 m,Confirm facility grounds and preferred representative coordinate
+shelter_candidate_0007,odpem2019-pm-007,open,No defensible coordinate candidate,Obtain official facility or municipal location evidence
+shelter_candidate_0008,odpem2019-pm-008,open,OSM street differs from source address wording,Confirm mapped school grounds against official school record
+shelter_candidate_0009,odpem2019-pm-009,open,No defensible coordinate candidate,Obtain official facility or municipal location evidence
+shelter_candidate_0010,odpem2019-pm-010,open,OSM street label differs from official address,Confirm whether Cottage Drive entrance or mapped grounds should represent location
+shelter_candidate_0011,odpem2019-pm-011,open,Official identity evidence has no coordinate,Obtain official HEART campus or parcel coordinate
+shelter_candidate_0012,odpem2019-pm-012,open,Facility name and address conflict with municipal listing,Resolve identity before geolocation
+shelter_candidate_0013,odpem2019-pm-013,open,OSM area and address-point candidates differ by approximately 103 m,Confirm facility footprint and entrance
+shelter_candidate_0014,odpem2019-pm-014,open,OSM street wording differs from source and municipal address,Confirm mapped school grounds against official school record
+shelter_candidate_0015,odpem2019-pm-015,open,Source provides locality only and OSM supplies a road name,Confirm mapped school grounds against official school record
+shelter_candidate_0016,odpem2019-pm-016,open,OSM says Angerstein Close while source says Angerstein Road,Confirm mapped school grounds and street relationship
+shelter_candidate_0017,odpem2019-pm-017,open,Official address evidence has no coordinate,Obtain official school parcel or entrance coordinate
+shelter_candidate_0018,odpem2019-pm-018,open,Official sources disagree on street number and OSM is a point,Confirm facility footprint or entrance and correct street number
+shelter_candidate_0019,odpem2019-out-001,open,Two mapped college areas differ by approximately 50 m,Identify the intended shelter facility within the campus
+shelter_candidate_0020,odpem2019-out-002,open,Source says Statute Road while OSM says Statue Road,Confirm National Arena footprint and official address
