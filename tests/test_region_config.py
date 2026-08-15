@@ -20,3 +20,20 @@ def test_region_config_records_frozen_ws25_003_decision():
     assert config["crs"]["original_source_crs"] == "unknown"
     assert config["crs"]["analysis_crs"] == "EPSG:3448"
     assert config["crs"]["decision_status"] == "frozen"
+
+
+def test_region_config_records_ws25_004_shelter_contract():
+    config_path = Path(__file__).resolve().parents[1] / "configs/regions/portmore_2020.yaml"
+    shelters = yaml.safe_load(config_path.read_text(encoding="utf-8"))["shelters"]
+    assert shelters["source_year"] == 2019
+    assert shelters["expected_record_count"] == 20
+    assert shelters["canonical_storage_crs"] == "EPSG:3448"
+    assert shelters["shelter_id_contract"] == "uuid5_from_immutable_source_record_id"
+    assert shelters["source_capacity_unit"] == "not_established"
+    assert shelters["operational_usable_capacity_default"] is None
+    assert shelters["unresolved_geometry_policy"] == (
+        "explicit_null_with_unknown_spatial_classification"
+    )
+    assert shelters["boundary_classification_semantics"] == (
+        "mvp_operational_not_legal_determination"
+    )

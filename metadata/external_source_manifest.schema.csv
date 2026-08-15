@@ -1,0 +1,13 @@
+field,required,description
+source_id,true,Stable identifier for an externally referenced source
+publisher,true,Source publisher
+title,true,Exact source title
+official_url,true,Official artifact URL
+index_url,true,Official index or landing-page URL
+source_version,true,Printed source version or update statement
+server_last_modified,true,HTTP Last-Modified value observed during acquisition
+access_date,true,UTC calendar date on which the source was accessed
+byte_size,true,Exact downloaded byte size
+sha256,true,SHA-256 of the verified temporary source copy
+redistribution_status,true,Restriction governing retention and redistribution
+raw_retention_reason,true,Reason the original source is not retained in Raw

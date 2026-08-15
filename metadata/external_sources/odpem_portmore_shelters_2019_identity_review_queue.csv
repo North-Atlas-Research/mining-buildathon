@@ -1,0 +1,5 @@
+source_record_id,canonical_candidate_id,review_reason,current_confidence,status,recommended_evidence
+odpem2019-pm-002,shelter_candidate_0002,No independent official facility record located,low,open,Municipal registration or facility record for Assembly of Righteousness at Quarry Hill
+odpem2019-pm-004,shelter_candidate_0004,No independent official facility record located,low,open,Municipal registration or facility record for Bethel Gospel Assembly in Christian Pen
+odpem2019-pm-012,shelter_candidate_0012,Official municipal listing has a similar Pentecostal facility name at a conflicting address,medium,open,Facility or denominational record resolving Boulder Crescent versus Orchid Way
+odpem2019-out-002,shelter_candidate_0020,Official municipal 2016 page says National Stadium while ODPEM row says National Arena,medium,open,Government facility record confirming the exact shelter building within the complex
