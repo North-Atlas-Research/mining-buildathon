@@ -75,3 +75,86 @@ shelters:
   boundary_classification_semantics: mvp_operational_not_legal_determination
   osm_attribution: © OpenStreetMap contributors
   osm_attribution_url: https://www.openstreetmap.org/copyright
+
+
+communities:
+  source_layer: JM_GEOG2_ADM2_2012_uscb_202302
+  source_geography_year: 2012
+  source_id_field: GEO_MATCH
+  source_name_field: AREA_NAME
+  source_provenance_reference: >-
+    metadata/raw_manifest.csv#relative_path=jamaica.gdb.zip;
+    jamaica_uscb_202302.xlsx#Metadata
+  source_redistribution_status: unresolved_no_rights_claimed
+  canonical_path: Processed/communities/portmore_community_zones_2020.gpkg
+  canonical_layer: portmore_community_zones_2020
+  canonical_storage_crs: EPSG:3448
+  expected_canonical_record_count: 14
+  zone_role: mvp_operational_planning_zone
+  inclusion_threshold_ratio: 0.01
+  inclusion_threshold_rationale: >-
+    Portmore-specific deterministic rule supported by the observed separation:
+    included source units overlap by at least approximately 28.20 percent and
+    excluded traces by at most approximately 0.0384 percent. This is not a
+    generally applicable community-selection threshold.
+  construction_method: source_community_clipped_to_operational_boundary
+  uuid_namespace: 0d710476-d218-52c0-aeb1-c3bcd144f704
+  uuid_namespace_derivation: >-
+    UUIDv5(NAMESPACE_URL,
+    https://github.com/North-Atlas-Research/mining-sprint/ws25-005/community-zones)
+  uuid_seed_contract: >-
+    ws25-005|JM_GEOG2_ADM2_2012_uscb_202302|<GEO_MATCH>|direct_source_clipped_v1
+  edge_review_semantics: two_sided_750m_band_review_only_not_operational_inclusion
+  trace_intersection_output: Interim/communities/portmore_trace_intersections.csv
+  source_crosswalk_output: Interim/communities/portmore_source_unit_crosswalk.csv
+  identity_crosswalk_output: Interim/communities/portmore_community_identity_crosswalk.csv
+  gap_diagnostic_output: Outputs/ws25-005/operational_boundary_gap.geojson
+  temporal_semantics: >-
+    Source community geometry is 2012-era; 2020 in the canonical filename refers
+    to its role in the Portmore 2020 regional baseline and not its survey vintage.
+  population_status: approved_local_demographic_baseline
+  population:
+    status: approved_projected_local_demographic_baseline
+    canonical_population_output: Processed/communities/portmore_community_zones_2020.gpkg#portmore_community_zones_2020
+    canonical_estimate_basis: projected_local_demographic_baseline
+    population_unit: people
+    anchor:
+      source: "STATIN ArcGIS Jamaica: Special Areas and Population 2011 / Portmore - 02 / TOTAL_POP"
+      year: 2011
+      value: 182153
+      field_label: TOTAL POPULATION
+      semantic_caveat: source does not explicitly label TOTAL_POP as resident population
+    projection:
+      method: saint_catherine_2011_2019_cagr_extended_to_2020
+      source: STATIN Jamaica Population Statistics 2020 via USCB
+      start_year: 2011
+      end_observed_year: 2019
+      target_year: 2020
+      saint_catherine_2011: 516218
+      saint_catherine_2019: 520502
+      formula: 182153 * ((520502 / 516218) ** (9 / 8))
+      semantics: parish_proxy_not_observed_2020_portmore_count
+    distribution:
+      source: STATIN/USCB JM_POVERTY_GEOG2_2012survey_uscb_202302
+      year: 2012
+      field: POV_ESTP
+      total: 171546
+      method: normalized_2012_community_population_estimate_weights
+    uncertainty:
+      temporal: moderate
+      spatial: moderate
+      review_required: true
+      known_uncertainty: >-
+        The 2011 Portmore anchor is projected with a Saint Catherine parish proxy;
+        2012 community estimates provide relative weights; values are not observed
+        2020 counts; and the small geometry gap is not a demographic unit.
+    rejected_primary_sources:
+      constrained_worldpop_2020:
+        doi: 10.5258/SOTON/WP00685
+        operational_boundary_total: 108219.5982
+      unconstrained_worldpop_2020:
+        doi: 10.5258/SOTON/WP00660
+        operational_boundary_total: 114233.6475
+      reason: >-
+        Technically validated WorldPop products materially under-allocated Portmore
+        population relative to stronger local 2011/2012 demographic evidence.

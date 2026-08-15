@@ -37,3 +37,36 @@ def test_region_config_records_ws25_004_shelter_contract():
     assert shelters["boundary_classification_semantics"] == (
         "mvp_operational_not_legal_determination"
     )
+
+
+def test_region_config_records_ws25_005_community_contract():
+    config_path = Path(__file__).resolve().parents[1] / "configs/regions/portmore_2020.yaml"
+    communities = yaml.safe_load(config_path.read_text(encoding="utf-8"))["communities"]
+    assert communities["source_layer"] == "JM_GEOG2_ADM2_2012_uscb_202302"
+    assert communities["source_geography_year"] == 2012
+    assert communities["source_id_field"] == "GEO_MATCH"
+    assert communities["expected_canonical_record_count"] == 14
+    assert communities["canonical_storage_crs"] == "EPSG:3448"
+    assert communities["zone_role"] == "mvp_operational_planning_zone"
+    assert communities["inclusion_threshold_ratio"] == 0.01
+    assert communities["construction_method"] == (
+        "source_community_clipped_to_operational_boundary"
+    )
+    assert communities["uuid_namespace"] == "0d710476-d218-52c0-aeb1-c3bcd144f704"
+    assert communities["population_status"] == "approved_local_demographic_baseline"
+    population = communities["population"]
+    assert population["status"] == "approved_projected_local_demographic_baseline"
+    assert population["canonical_estimate_basis"] == "projected_local_demographic_baseline"
+    assert population["population_unit"] == "people"
+    assert population["anchor"]["value"] == 182153
+    assert population["projection"]["saint_catherine_2011"] == 516218
+    assert population["projection"]["saint_catherine_2019"] == 520502
+    assert population["projection"]["target_year"] == 2020
+    assert population["distribution"]["field"] == "POV_ESTP"
+    assert population["distribution"]["total"] == 171546
+    assert population["uncertainty"]["review_required"] is True
+    assert set(population["rejected_primary_sources"]) == {
+        "constrained_worldpop_2020",
+        "unconstrained_worldpop_2020",
+        "reason",
+    }
