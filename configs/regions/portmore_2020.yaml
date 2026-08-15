@@ -52,3 +52,26 @@ notes:
   - The canonical boundary, not the 750 m two-sided edge-review band, is the operational inclusion polygon.
   - Production source selection is frozen and must not be reopened during normalization.
   - Broader St. Catherine / lower Rio Cobre context may be used for narrative or contextual layers.
+
+
+shelters:
+  source_year: 2019
+  canonical_path: Processed/shelters/portmore_shelters_2019.gpkg
+  canonical_layer: portmore_shelters_2019
+  canonical_storage_crs: EPSG:3448
+  preview_path: Outputs/ws25-004/portmore_shelters_2019_preview_epsg4326.geojson
+  expected_record_count: 20
+  shelter_id_contract: uuid5_from_immutable_source_record_id
+  source_record_id_field: source_record_id
+  resolution_candidate_id_field: resolution_candidate_id
+  source_designation_baseline: odpem_listed_designated
+  event_specific_status_default: unknown
+  operational_availability_default: unknown
+  source_capacity_field: source_capacity
+  source_capacity_unit: not_established
+  baseline_capacity_semantics: historical_source_value_with_unestablished_unit_not_verified_operational_capacity
+  operational_usable_capacity_default: null
+  unresolved_geometry_policy: explicit_null_with_unknown_spatial_classification
+  boundary_classification_semantics: mvp_operational_not_legal_determination
+  osm_attribution: © OpenStreetMap contributors
+  osm_attribution_url: https://www.openstreetmap.org/copyright
