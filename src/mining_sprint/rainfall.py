@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
+from itertools import pairwise
 from pathlib import Path
-import re
 
 import h5py
 import numpy as np
@@ -31,7 +32,7 @@ class SourceInterval:
 
 def utc_datetime(value: str) -> datetime:
     """Parse an ISO UTC timestamp."""
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
+    return datetime.fromisoformat(value).astimezone(UTC)
 
 
 def source_intervals(raw_directory: Path, expected_count: int = 240) -> list[SourceInterval]:
@@ -47,7 +48,7 @@ def source_intervals(raw_directory: Path, expected_count: int = 240) -> list[Sou
         start = datetime.strptime(match["date"] + match["start"], "%Y%m%d%H%M%S").replace(tzinfo=UTC)
         intervals.append(SourceInterval(path, start, start + SOURCE_INTERVAL))
     intervals.sort(key=lambda item: item.start)
-    for previous, current in zip(intervals, intervals[1:], strict=False):
+    for previous, current in pairwise(intervals):
         if current.start != previous.end:
             raise RainfallSourceError(f"Missing, duplicate, or unordered interval before {current.path.name}")
     return intervals
@@ -164,3 +165,16 @@ def normalize_dataset(source: xr.Dataset, event_start: datetime, event_end: date
         "native_information_content": "Native 0.1 degree cells retained; no resampling or downscaling.",
     })
     return result
+
+
+def rainfall_lookup(dataset: xr.Dataset, timestamp: np.datetime64, longitude: float, latitude: float, window: str) -> dict[str, object]:
+    """Return native-cell rainfall context for a timestamp and WGS84 point."""
+    variables = {"30m": "precipitation_30m_mm", "1h": "accumulation_1h_mm", "3h": "accumulation_3h_mm", "6h": "accumulation_6h_mm", "24h": "accumulation_24h_mm"}
+    if window not in variables:
+        raise ValueError(f"Unsupported rainfall window: {window}")
+    lon_match = np.where((dataset.lon_bounds[:, 0] <= longitude) & (longitude <= dataset.lon_bounds[:, 1]))[0]
+    lat_match = np.where((dataset.lat_bounds[:, 0] <= latitude) & (latitude <= dataset.lat_bounds[:, 1]))[0]
+    if len(lon_match) != 1 or len(lat_match) != 1:
+        raise ValueError("Point is outside or ambiguous within the retained native IMERG cells")
+    value = dataset[variables[window]].sel(time=timestamp).isel(lat=int(lat_match[0]), lon=int(lon_match[0])).item()
+    return {"window": window, "value_mm": None if np.isnan(value) else float(value), "native_lon": float(dataset.lon.isel(lon=int(lon_match[0]))), "native_lat": float(dataset.lat.isel(lat=int(lat_match[0]))), "provenance": "native_imerg_context_no_downscaling"}

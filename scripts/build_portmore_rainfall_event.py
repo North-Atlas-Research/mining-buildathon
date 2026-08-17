@@ -1,12 +1,19 @@
 """Build the native-grid WS25-009 Portmore IMERG event cube."""
 from __future__ import annotations
+
 import argparse
 import json
 from pathlib import Path
+
 import geopandas as gpd
-import numpy as np
 import xarray as xr
-from mining_sprint.rainfall import normalize_dataset, read_native_subset, source_intervals, utc_datetime
+
+from mining_sprint.rainfall import (
+    normalize_dataset,
+    read_native_subset,
+    source_intervals,
+    utc_datetime,
+)
 
 RAW_REL = Path("Raw/nasa_gpm_imerg/GPM_3IMERGHH_07/V07B/2020/10")
 EVENT_START = utc_datetime("2020-10-05T05:00:00Z")

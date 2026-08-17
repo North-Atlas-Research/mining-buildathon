@@ -1,7 +1,10 @@
 from datetime import UTC, datetime, timedelta
+
 import numpy as np
 import xarray as xr
+
 from mining_sprint.rainfall import event_total, normalized_time, rate_to_depth, trailing_complete
+
 
 def depth(count):
     start=datetime(2020,10,4,5,tzinfo=UTC)
