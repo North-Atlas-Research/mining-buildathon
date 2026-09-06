@@ -317,7 +317,9 @@ The historical rainfall layer provides context. Explicit trusted observations de
 
 ## License status
 
-No open-source license file has been selected for this repository. Reuse or public redistribution should therefore be confirmed with the project owner before publication.
+This repository's source code is available under the [MIT License](LICENSE).
+
+Third-party datasets, source extracts, and other externally supplied materials retain their original terms, licences, and attribution requirements. The project license does not supersede those terms; see the tracked provenance and data-policy documentation before reusing data.
 
 ## Submission status
 
