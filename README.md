@@ -286,7 +286,7 @@ historical/measured context
 → human review
 ```
 
-![Passage Fort replay dashboard: historical context, synthetic closure input, deterministic reroute, and human-review outcome](docs/assets/ws25_013/passage_fort_replay.png)
+![Passage Fort replay dashboard: historical context, synthetic closure input, deterministic reroute, and human-review outcome](docs/assets/ws25_013/passage_fort_replay_updated.png)
 
 ## Scope and limitations
 
